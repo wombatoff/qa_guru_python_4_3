@@ -12,7 +12,7 @@ def configured_browser():
     return browser
 
 
-def test_positive(configured_browser):
+def test_1_positive(configured_browser):
     browser.open(TEST_URL)
     browser.element('[id="firstName"]').should(be.blank).type('Oleg')
     browser.element('[id="lastName"]').should(be.blank).type('Greckiy')
@@ -23,7 +23,7 @@ def test_positive(configured_browser):
     assert browser.element('[id="example-modal-sizes-title-lg"]').should(have.text('Thanks for submitting the form'))
 
 
-def test_negative(configured_browser):
+def test_1_negative(configured_browser):
     browser.open(TEST_URL)
     browser.element('[id="firstName"]').should(be.blank).type('Oleg')
     browser.element('[id="lastName"]').should(be.blank).type('Greckiy')
