@@ -8,11 +8,11 @@ TEST_URL = 'https://demoqa.com/automation-practice-form'
 @pytest.fixture
 def configured_browser():
     browser.config.window_width = 1980
-    browser.config.window_height = 1080
+    browser.config.window_height = 1280
     return browser
 
 
-def test_positive(configured_browser):
+def test_first_positive(configured_browser):
     browser.open(TEST_URL)
     browser.element('[id="firstName"]').should(be.blank).type('Oleg')
     browser.element('[id="lastName"]').should(be.blank).type('Greckiy')
@@ -23,7 +23,7 @@ def test_positive(configured_browser):
     assert browser.element('[id="example-modal-sizes-title-lg"]').should(have.text('Thanks for submitting the form'))
 
 
-def test_negative(configured_browser):
+def test_first_negative(configured_browser):
     browser.open(TEST_URL)
     browser.element('[id="firstName"]').should(be.blank).type('Oleg')
     browser.element('[id="lastName"]').should(be.blank).type('Greckiy')
